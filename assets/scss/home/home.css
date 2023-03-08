@@ -1,0 +1,125 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(../../fonts/ShantellSans-Italic.ttf);
+}
+#navbar .navarea {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.5s;
+  height: 200px;
+  width: 100vw;
+  background-color: rgb(231, 233, 235);
+}
+#navbar .navarea .close {
+  font-size: 45px;
+  color: rgb(8, 8, 8);
+  position: absolute;
+  top: 170px;
+  left: 100px;
+  cursor: pointer;
+}
+#navbar .navarea .open {
+  font-size: 45px;
+  color: rgb(8, 8, 8);
+  position: absolute;
+  top: 170px;
+  left: 100px;
+  cursor: pointer;
+}
+#navbar .navarea .left {
+  width: 60px;
+  position: absolute;
+  left: 100px;
+  top: 50px;
+}
+#navbar .navarea .left img {
+  width: 100%;
+}
+#navbar .navarea .right {
+  position: absolute;
+  left: 1200px;
+  top: 50px;
+}
+#navbar .navarea .right a {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  font-size: 20px;
+  font-family: myFirstFont;
+}
+#navbar .navarea .right .basket {
+  font-size: 25px;
+}
+#navbar .navarea .right i:hover {
+  color: rgb(187, 41, 41);
+}
+#navbar .navarea .right sup {
+  font-size: 20px;
+  margin-right: 30px;
+  color: rgb(187, 41, 41);
+  font-weight: 500;
+}
+#navbar .hide {
+  transform: translateY(-150px);
+}
+
+@media screen and (max-width: 992px) {
+  #navbar .navarea .right {
+    position: absolute;
+    left: 200px;
+    top: 50px;
+  }
+}
+#products h2 {
+  text-align: center;
+  font-size: 70px;
+  font-family: myFirstFont;
+  color: black;
+}
+#products .card {
+  margin-top: 50px;
+  width: 100%;
+  height: 330px;
+  border: none;
+}
+#products .card .product-image img {
+  width: 100%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#products .card .product-image img:hover {
+  transform: scale(1.1);
+}
+#products .card .product-name p {
+  margin-top: 30px;
+  text-align: center;
+  line-height: 0px;
+  font-size: 20px;
+  font-family: myFirstFont;
+}
+#products .card .product-price p {
+  text-align: center;
+  font-size: 15px;
+  color: rgb(118, 117, 117);
+  font-family: cursive;
+}
+#products .card .button {
+  text-align: center;
+}
+#products .card .button .btn {
+  background-color: black;
+  color: white;
+  border: 1px black solid;
+  font-family: cursive;
+}
+
+@media screen and (max-width: 992px) {
+  #products .card .product-image img {
+    height: 260px;
+    width: 450px;
+  }
+  #products .card .product-image img:hover {
+    transform: none;
+  }
+}/*# sourceMappingURL=home.css.map */

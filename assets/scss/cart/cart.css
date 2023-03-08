@@ -1,0 +1,93 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(../../fonts/ShantellSans-Italic.ttf);
+}
+#navbar .navarea {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.5s;
+  height: 200px;
+  width: 100vw;
+  background-color: rgb(231, 233, 235);
+}
+#navbar .navarea .close {
+  font-size: 45px;
+  color: rgb(8, 8, 8);
+  position: absolute;
+  top: 170px;
+  left: 100px;
+  cursor: pointer;
+}
+#navbar .navarea .open {
+  font-size: 45px;
+  color: rgb(8, 8, 8);
+  position: absolute;
+  top: 170px;
+  left: 100px;
+  cursor: pointer;
+}
+#navbar .navarea .left {
+  width: 60px;
+  position: absolute;
+  left: 100px;
+  top: 50px;
+}
+#navbar .navarea .left img {
+  width: 100%;
+}
+#navbar .navarea .right {
+  position: absolute;
+  left: 1200px;
+  top: 50px;
+}
+#navbar .navarea .right a {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  font-size: 20px;
+  font-family: myFirstFont;
+}
+#navbar .navarea .right .basket {
+  font-size: 25px;
+}
+#navbar .navarea .right i:hover {
+  color: rgb(187, 41, 41);
+}
+#navbar .navarea .right sup {
+  font-size: 20px;
+  margin-right: 30px;
+  color: rgb(187, 41, 41);
+  font-weight: 500;
+}
+#navbar .hide {
+  transform: translateY(-150px);
+}
+
+#cart h2 {
+  text-align: center;
+  font-size: 60px;
+  font-family: myFirstFont;
+  color: black;
+}
+#cart .table img {
+  width: 50px;
+  height: 50px;
+}
+#cart .table th {
+  text-align: center;
+  border: none;
+  font-family: cursive;
+  font-size: 20px;
+}
+#cart .table tbody {
+  text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  #navbar .navarea .right {
+    position: absolute;
+    left: 200px;
+    top: 50px;
+  }
+}/*# sourceMappingURL=cart.css.map */
