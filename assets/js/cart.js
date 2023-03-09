@@ -28,7 +28,6 @@ if(total.innerText==""){
     total.innerText="0 $"
 }
 
-price(products);
 
 if (products != null) {
     products.forEach(product => {
@@ -129,7 +128,7 @@ function price(products) {
     return sum;
 }
 
-total.innerText = `${price(JSON.parse(localStorage.getItem("basket")))} $`
+total.innerText = `${price.parseInt(JSON.parse(localStorage.getItem("basket")))} $`
 
 
 function getBasketCount(arr) {
@@ -146,8 +145,9 @@ productCount.innerText=getBasketCount(JSON.parse(localStorage.getItem("basket"))
 
 
 function productPrice(product){
-    return product.price*product.count
+    return parseInt(product.price*product.count)
 }
+
 
 
 
