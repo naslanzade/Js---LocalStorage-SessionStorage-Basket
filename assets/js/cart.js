@@ -20,11 +20,15 @@ closeIcon.addEventListener("click", function () {
 
 let tableBody = document.querySelector("tbody");
 let productAlert = document.querySelector(".alert-primary");
-let totalPrice = document.querySelector(".total-price");
+let total = document.querySelector(".total-price");
 let products = JSON.parse(localStorage.getItem("basket"));
 
 
+if(total.innerText==""){
+    total.innerText="0 $"
+}
 
+price(products);
 
 if (products != null) {
     products.forEach(product => {
@@ -53,9 +57,6 @@ if (products != null) {
 }
 
 
-
-
-
 let deleteButtons = document.querySelectorAll(".fa-trash-can");
 for (const btn of deleteButtons) {
     btn.addEventListener("click", function () {
@@ -71,29 +72,29 @@ for (const btn of deleteButtons) {
 
         localStorage.setItem("basket", JSON.stringify(products))
 
-        totalPrice.innerText = `${getPrice(JSON.parse(localStorage.getItem("basker")))} $`
+        total.innerText = `${price(JSON.parse(localStorage.getItem("basket")))} $`
 
-        productCount.innerText = getCartCount(JSON.parse(localStorage.getItem("basket")))
+        
     })
 }
 
 
 let decreaseButtons = document.querySelectorAll(".minus")
 let increaseButtons = document.querySelectorAll(".plus")
-let syncCounts = document.querySelectorAll(".count");
+let count = document.querySelectorAll(".count");
 
 
 
 decreaseButtons.forEach(btn => {
     btn.addEventListener("click", function () {
-        let changeProduct = products.find(m => m.id == btn.getAttribute("data-id"))
-        if (changeProduct.count > 1) {
-            changeProduct.count--;
+        let product = products.find(m => m.id == btn.getAttribute("data-id"))
+        if (product.count > 1) {
+            product.count--;
             localStorage.setItem("basket", JSON.stringify(products))
 
-            for (const syncCount of syncCounts) {
-                if (syncCount.getAttribute("data-id") == btn.getAttribute("data-id")) {
-                    syncCount.innerText = syncCount.innerText - 1
+            for (const count of countProduct) {
+                if (count.getAttribute("data-id") == btn.getAttribute("data-id")) {
+                    count.innerText = count.innerText - 1
                 }
             }           
         }        
@@ -105,24 +106,22 @@ decreaseButtons.forEach(btn => {
 
 increaseButtons.forEach(btn => {
     btn.addEventListener("click", function () {
-        let changeProduct = products.find(m => m.id == btn.getAttribute("data-id"))
-
-        changeProduct.count++;
+        let product = products.find(m => m.id == btn.getAttribute("data-id"))
+        product.count++;
         localStorage.setItem("basket", JSON.stringify(products))
 
-        for (const syncCount of syncCounts) {
-            if (syncCount.getAttribute("data-id") == btn.getAttribute("data-id")) {
-                syncCount.innerText = parseInt(syncCount.innerText) + 1
+        for (const count of countProduct) {
+            if (count.getAttribute("data-id") == btn.getAttribute("data-id")) {
+                count.innerText = parseInt(count.innerText) + 1
             }
         }      
       
-
-        productCount.innerText = getCartCount(JSON.parse(localStorage.getItem("products")))
+        productCount.innerText = getBasketCount(JSON.parse(localStorage.getItem("basket")))
     })
 });
 
 
-function getPrice(products) {
+function price(products) {
     let sum = 0;
     for (const product of products) {
         sum += (product.price * product.count);
@@ -130,7 +129,7 @@ function getPrice(products) {
     return sum;
 }
 
-totalPrice.innerText = `${getPrice(JSON.parse(localStorage.getItem("basket")))} $`
+total.innerText = `${price(JSON.parse(localStorage.getItem("basket")))} $`
 
 
 function getBasketCount(arr) {
@@ -142,10 +141,13 @@ function getBasketCount(arr) {
     document.querySelector("sup").innerText = count;
 }
 
+productCount.innerText=getBasketCount(JSON.parse(localStorage.getItem("basket")))
 
 
 
-
+function productPrice(product){
+    return product.price*product.count
+}
 
 
 
