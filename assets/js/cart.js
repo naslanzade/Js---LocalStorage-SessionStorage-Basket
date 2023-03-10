@@ -28,6 +28,7 @@ if(total.innerText==""){
     total.innerText="0 $"
 }
 
+total.innerText=`${price(products)} $`
 
 
 
@@ -125,7 +126,7 @@ increaseButtons.forEach(btn => {
 function price(products) {
     let sum = 0;
     for (const product of products) {
-        sum += (product.price * product.count);
+        sum += parseInt(product.price.replace("$",""))*product.count;
     }
     return sum;
 }
