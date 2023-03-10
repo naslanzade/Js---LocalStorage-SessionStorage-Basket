@@ -29,12 +29,14 @@ if(total.innerText==""){
 }
 
 
+
+
 if (products != null) {
     products.forEach(product => {
         tableBody.innerHTML += `<tr>
         <td><img src="${product.image}" alt=""></td>
         <td>${product.name}</td>
-        <td class="price">${parseInt(product.price.replace("$",""))*product.count}</td>
+        <td class="price">${parseInt(product.price.replace("$",""))*product.count} $</td>
         <td class="product-count" data-id = ${product.id}>
         <span class="minus" data-id="${product.id}">-</span>
         <span class="count" data-id=${product.id}>${product.count}</span>
@@ -71,7 +73,7 @@ for (const btn of deleteButtons) {
 
         localStorage.setItem("basket", JSON.stringify(products))
 
-        total.innerText = `${price(JSON.parse(localStorage.getItem("basket")))} $`
+        
 
         
     })
@@ -98,7 +100,7 @@ decreaseButtons.forEach(btn => {
             }           
         }        
 
-        productCount.innerText = getBasketCount(JSON.parse(localStorage.getItem("basket")))
+        count.innerText = getBasketCount(JSON.parse(localStorage.getItem("basket")))
     })
 });
 
@@ -115,7 +117,7 @@ increaseButtons.forEach(btn => {
             }
         }      
       
-        productCount.innerText = getBasketCount(JSON.parse(localStorage.getItem("basket")))
+        count.innerText = getBasketCount(JSON.parse(localStorage.getItem("basket")))
     })
 });
 
@@ -128,8 +130,6 @@ function price(products) {
     return sum;
 }
 
-total.innerText = `${price.parseInt(JSON.parse(localStorage.getItem("basket")))} $`
-
 
 function getBasketCount(arr) {
     let count = 0;
@@ -140,13 +140,9 @@ function getBasketCount(arr) {
     document.querySelector("sup").innerText = count;
 }
 
-productCount.innerText=getBasketCount(JSON.parse(localStorage.getItem("basket")))
+count.innerText=getBasketCount(JSON.parse(localStorage.getItem("basket")))
 
 
-
-function productPrice(product){
-    return parseInt(product.price*product.count)
-}
 
 
 
