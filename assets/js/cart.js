@@ -34,7 +34,7 @@ if (products != null) {
         tableBody.innerHTML += `<tr>
         <td><img src="${product.image}" alt=""></td>
         <td>${product.name}</td>
-        <td>${product.price}</td>
+        <td class="price">${parseInt(product.price.replace("$",""))*product.count}</td>
         <td class="product-count" data-id = ${product.id}>
         <span class="minus" data-id="${product.id}">-</span>
         <span class="count" data-id=${product.id}>${product.count}</span>
